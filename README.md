@@ -34,6 +34,10 @@ simcov/
 │ ├── conexion_simcov.cs
 │ ├── SesionUsuario.cs
 │ └── seguridad.cs
+│ └── clientes.cs
+│ └── inventario.cs
+│ └── productos.cs
+│ └── ventas.cs
 ├── Form1.cs (Login)
 ├── Form2.cs (Menú principal)
 ├── Form3.cs (Ventas)
@@ -53,19 +57,20 @@ simcov/
 
 - Tener instalado **Visual Studio 2022 o superior**
 - Tener instalado **SQL Server** (preferiblemente con SQL Server Management Studio)
-- Restaurar la base de datos usando el archivo `simcov.sql`
 - Actualizar la cadena de conexión en `conexion_simcov.cs` con los datos de tu servidor
 
 ---
 
-## 🔄 Restaurar la base de datos
+## 🔄 Crear la base de datos
 
 1. Abrir SQL Server Management Studio.
 2. Crear una nueva base de datos (puede llamarse `simcov`).
-3. Esquema de base de datos
+3. Esquema de base de datos:
 
-Estructura de tablas
-```sql
+---
+
+## Estructura de tablas
+
 CREATE TABLE Productos (
     id_producto INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(100) NOT NULL,
@@ -110,7 +115,13 @@ CREATE TABLE Usuarios (
     fecha_creacion DATETIME DEFAULT GETDATE()
 );
 
-4. Ejecutar el script `simcov.sql` incluido en el repositorio.
+---
+
+4. Realizar una primera inserción para generar un usuario con el que ingresara **con contraseña hasheada**. Ejemplo:
+   ```bash
+    INSERT INTO Usuarios (nombre_usuario, contraseña, rol)
+    VALUES ('admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'administrador');
+
 5. Verificar que las tablas `Usuarios`, `Productos`, `Ventas`, etc., estén creadas correctamente.
 
 ---
