@@ -70,7 +70,7 @@ simcov/
 ---
 
 ## Estructura de tablas
---sql
+```sql
 
 CREATE TABLE Productos (
     id_producto INT PRIMARY KEY IDENTITY(1,1),
@@ -115,7 +115,7 @@ CREATE TABLE Usuarios (
     rol VARCHAR(20) NOT NULL CHECK (rol IN ('administrador', 'empleado')),
     fecha_creacion DATETIME DEFAULT GETDATE()
 );
-
+```
 ---
 
 4. Realizar una primera inserción para generar un usuario con el que ingresara **con contraseña hasheada**. Ejemplo:
