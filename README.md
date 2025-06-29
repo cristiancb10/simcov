@@ -71,6 +71,7 @@ simcov/
 
 ## Estructura de tablas
 --sql
+
 CREATE TABLE Productos (
     id_producto INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(100) NOT NULL,
